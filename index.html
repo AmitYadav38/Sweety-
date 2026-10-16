@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You Sweety ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #240016, #8e174d, #ff5277);
+    color: white;
+    padding: 20px;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    animation: float 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    20% { opacity: 1; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.card {
+    width: 100%;
+    max-width: 390px;
+    padding: 35px 24px;
+    text-align: center;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 50px #0005;
+    animation: appear 1s ease;
+    z-index: 2;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.bigheart {
+    font-size: 75px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.18); }
+}
+
+h1 {
+    font-size: 38px;
+    color: #ffd5e4;
+    margin: 15px 0;
+    text-shadow: 0 0 20px #ff9bbb;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background: #fff0f6;
+    color: #d51c62;
+}
+
+.yes:hover {
+    transform: scale(1.05);
+    background: white;
+}
+
+.no {
+    background: #ffffff20;
+    border: 1px solid #ffffff80;
+    color: white;
+}
+
+#message {
+    display: none;
+    animation: appear 0.6s ease;
+}
+
+.footer {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="bigheart">❤️</div>
+
+    <h1>I LOVE YOU</h1>
+
+    <h2>SWEETY 🥹💕</h2>
+
+    <p>
+        Sweety, mujhe tumse ek baat kehni hai... 💌
+        <br><br>
+        <b>I LOVE YOU SO MUCH! ❤️</b>
+        <br><br>
+        Tum mere liye bahut special ho.
+        Dil ki baat aur chhupani nahi thi,
+        isliye aaj seedha keh diya. 🌹
+        <br><br>
+        <b>Will you accept my love? 💖</b>
+    </p>
+
+    <button class="yes" onclick="accept()">
+        YES ❤️🥹
+    </button>
+
+    <button class="no" onclick="think()">
+        Let Me Think 💗
+    </button>
+
+    <div id="message"></div>
+
+    <div class="footer">
+        Made with lots of love ❤️ Just for Sweety
+    </div>
+
+</div>
+
+<script>
+const hearts = ["❤️", "💖", "💕", "💗", "💘", "🌹"];
+
+function createHeart() {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.textContent = hearts[
+        Math.floor(Math.random() * hearts.length)
+    ];
+
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = (18 + Math.random() * 25) + "px";
+    h.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 9000);
+}
+
+setInterval(createHeart, 300);
+
+function accept() {
+    const msg = document.getElementById("message");
+    msg.style.display = "block";
+    msg.innerHTML = `
+        <h2>OMG SWEETY!! 🥹❤️</h2>
+        <p>
+        You just made my day! 💖🌹
+        <br><br>
+        I hope we make beautiful memories together.
+        Thank you for giving my feelings a chance. 🫶
+        <br><br>
+        <span style="font-size:35px">❤️💋💕</span>
+        </p>
+    `;
+
+    for (let i = 0; i < 30; i++) {
+        setTimeout(createHeart, i * 100);
+    }
+}
+
+function think() {
+    const msg = document.getElementById("message");
+    msg.style.display = "block";
+    msg.innerHTML = `
+        <h2>Take Your Time, Sweety 🌸</h2>
+        <p>
+        Your feelings matter too. ❤️
+        No pressure, I'll respect your decision. 🫶
+        </p>
+    `;
+}
+</script>
+
+</body>
+</html>
